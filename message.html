@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+</head>
+
+<body>
+<div class="container">
+    <h1 class="header-text">WILDBERRIES</h1>
+    <div class="main">
+        <h2 class="main-header">
+            Введите пожалуйста номер заказа для пойска информации о нем
+        </h2>
+        <form method="post" class="main-form">
+            <input type="text" name="order_uid" class="main-orderuid" placeholder="Номер заказа">
+            <input type="submit" value="Найти" class="main-search">
+        </form>
+        <h3 class="main-header">
+            Информация о заказе:
+        </h3>
+        <div class="main-text">
+            <h4 >Номер заказа: {{ .OrderUid }}</h4>
+            <ul class="main-text-general">
+                <li>Номер трека: {{ .TrackNumber }}</li>
+                <li>Индентификатор клиента: {{ .CustomerId }}</li>
+                <li>Служба доставки: {{ .DeliveryService }}</li>
+                <li>Время создания заказа: {{ .DateCreated }}</li>
+            </ul>
+            <ul class="main-text-delivery">
+                <li>Имя: {{ .Delivery.Name }} </li>
+                <li>Адрес доставки: {{ .Delivery.City }} {{ .Delivery.Region }} {{ .Delivery.Address }} {{ .Delivery.Zip }}</li>
+                <li>Email: {{ .Delivery.Email }}</li>
+                <li>Телефон: {{ .Delivery.Phone }}</li>
+            </ul>
+            <ul class="main-text-payment">
+                <li>Стоимость доставки: {{ .Payment.DeliveryCost }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
